@@ -2,7 +2,7 @@
 
 Live: https://chillmuse.github.io/muse-player/
 
-A responsive Korean / English product landing page using the supplied app screenshots and original poster-inspired artwork. Built with native HTML/CSS/JavaScript and Vite; fonts are self-hosted.
+A responsive English-language product landing page using the supplied app screenshots and original poster-inspired artwork. Built with native HTML/CSS/JavaScript and Vite; fonts are self-hosted.
 
 ## Development
 

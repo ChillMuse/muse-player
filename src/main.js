@@ -5,12 +5,12 @@ import '@fontsource/cormorant-garamond/latin-400-italic.css';
 import './style.css';
 const base = import.meta.env.BASE_URL;
 const screens = {
-  home: ['Muse Home: 듣던 음악과 최근 추가한 앨범', '마지막으로 듣던 곡부터. 다시, 재생.'],
-  library: ['Muse Library: 앨범 커버로 탐색하는 음악 라이브러리', '좋아하는 앨범들이 모여, 당신만의 컬렉션.'],
-  radio: ['Muse Radio: 곡과 아티스트에서 시작하는 라디오', '한 곡에서 시작해, 새로운 음악으로.'],
-  add: ['Muse Add music: 음악 검색과 다운로드 진행 화면', '찾고, 추가하고, 라이브러리에서 만나보세요.'],
-  artists: ['Muse Library: 아티스트별 음악 보기', '좋아하는 아티스트의 음악을 한눈에.'],
-  songs: ['Muse Library: 노래별 음악 보기', '듣고 싶은 그 노래를 더 빠르게.'],
+  home: ['Muse Home: resume your last track and browse recently added albums', 'Pick up where you left off. Browse recently added albums.'],
+  library: ['Muse Library: browse albums by their cover artwork', 'Search the library. Browse Albums, Artists, or Songs.'],
+  radio: ['Muse Radio: start from a record or one of your artists', 'Pick a record to start from. Radio keeps going from there.'],
+  add: ['Muse Add music: search results and background download progress', 'Search for a song or an album. It downloads in the background and appears in the library when it’s ready.'],
+  artists: ['Muse Library: artists with their album counts', 'Browse your artists and the albums in your library.'],
+  songs: ['Muse Library: songs with artist names and track durations', 'Browse songs with their artists and track durations.'],
 };
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 const screen = document.querySelector('#app-screen');
@@ -56,6 +56,6 @@ if (download.url) {
     document.querySelector('.availability').replaceWith(link);
     document.querySelector('.download-note').textContent = download.note;
     const faq = document.querySelector('.questions details:last-child p');
-    faq.textContent = 'Muse는 macOS 전용 앱입니다. 다운로드 버튼으로 설치 파일을 받을 수 있습니다. 자세한 설치 방법은 GitHub 릴리스에서 확인하세요.';
+    faq.textContent = 'Muse is a macOS-only app. Use the download button to get the installer. See the GitHub release for installation instructions.';
   }
 }

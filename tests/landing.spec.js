@@ -11,7 +11,7 @@ test('desktop interactions, assets and accessibility', async ({ page }) => {
   await expect(page.getByRole('tab', { name: 'Radio', exact: true })).toHaveAttribute('aria-selected', 'true');
   await page.getByRole('button', { name: 'Artists', exact: true }).click();
   await expect(page.locator('#app-screen')).toHaveAttribute('src', /artists.jpg/);
-  await page.getByRole('button', { name: '크게 보기', exact: false }).last().click();
+  await page.getByRole('button', { name: 'Enlarge', exact: false }).last().click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.keyboard.press('Escape'); await expect(page.getByRole('dialog')).not.toBeVisible();
   await page.locator('summary').last().click(); await expect(page.locator('details').last()).toHaveAttribute('open', '');
@@ -22,7 +22,7 @@ test('desktop interactions, assets and accessibility', async ({ page }) => {
 });
 test('mobile layout and reduced motion', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 }); await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto(url);
-  await expect(page.getByRole('link', { name: 'Muse 둘러보기' })).toBeInViewport();
+  await expect(page.getByRole('link', { name: 'Explore Muse' })).toBeInViewport();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   for (const tab of await page.getByRole('tab').all()) { await tab.click(); await expect(page.locator('#app-screen')).toBeVisible(); }
   await page.evaluate(async () => { await Promise.all([...document.images].filter(img => !img.closest('dialog')).map(img => { img.loading = 'eager'; return img.decode(); })); });
