@@ -1,0 +1,7 @@
+# Social share image
+
+Generated with the built-in image_gen tool. Original: `design/muse-og-original.png`. Production: `public/images/muse-og.jpg` (1200 × 630 JPEG, resized and encoded with Sharp). Used by Open Graph and Twitter large-image card metadata.
+
+## Final prompt
+
+Use case: ads-marketing. Create a finished Open Graph social share image for Muse, a macOS music player. Landscape aspect ratio 1.90476:1, ideally 1200x630. Design: premium psychedelic French festival poster, deep aubergine purple #28172f background with tactile fine risograph grain. Right half features a large irregular elongated eight-point starburst, sharply hand-cut organic spikes filled with airbrushed hot pink, peach, lavender and golden yellow pigment. A smaller star near lower right. Keep left 60 percent dark and calm behind type. Exact English text ONLY: top left "muse" in a bold rounded contemporary sans wordmark; center-left large headline on two lines "Find your" in clean light sans and "frequency." in elegant Cormorant-like italic serif, pale pink/off-white; bottom left "A music player for macOS." in medium readable sans. All text perfectly spelled and very legible at thumbnail size. Generous 70px equivalent safe margins, headline fully inside frame and never overlapping bright stars. No UI, no buttons, no browser frame, no screenshots, no additional text, no watermark. Rich print texture and editorial composition, matching a refined aubergine/pink music landing page.
