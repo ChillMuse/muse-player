@@ -35,15 +35,49 @@
 
     <section class="experience wrap section" id="experience" aria-labelledby="experience-title">
       <div class="section-heading reveal"><p class="eyebrow">YOUR MUSIC, IN GOOD COMPANY</p><h2 id="experience-title">Pick up where<br />you <em>left off.</em></h2><p>Resume your last track, open the album,<br />or browse your recently added music.</p></div>
-      <div class="preview reveal">
-        <div class="preview-toolbar"><span class="preview-label">Inside Muse</span><div class="tabs" role="tablist" aria-label="Choose an app screen"><button role="tab" aria-selected="true" aria-controls="app-panel" id="tab-home" data-screen="home">Home</button><button role="tab" aria-selected="false" aria-controls="app-panel" id="tab-library" tabindex="-1" data-screen="library">Library</button><button role="tab" aria-selected="false" aria-controls="app-panel" id="tab-radio" tabindex="-1" data-screen="radio">Radio</button><button role="tab" aria-selected="false" aria-controls="app-panel" id="tab-add" tabindex="-1" data-screen="add">Add music</button></div></div>
-        <div id="app-panel" role="tabpanel" aria-labelledby="tab-home"><button class="screenshot-button" aria-label="Enlarge app screenshot"><img id="app-screen" src="./images/home.jpg" alt="Muse Home: resume your last track and browse recently added albums" width="2047" height="1073" loading="lazy" /></button></div>
-        <div class="preview-caption"><p id="screen-caption" aria-live="polite">Pick up where you left off. Browse recently added albums.</p><button class="text-button" id="expand">Enlarge <span aria-hidden="true">↗</span></button></div>
-      </div>
-      <div class="library-detail reveal"><h3>Search the library.</h3><div><p>Browse your music by Albums, Artists, or Songs.<br />Search the library to find what you want to play.</p><div class="library-switch" role="group" aria-label="Library views"><button data-view="library" aria-pressed="true">Albums</button><button data-view="artists" aria-pressed="false">Artists</button><button data-view="songs" aria-pressed="false">Songs</button></div></div></div>
+<figure class="feature-shot reveal">
+        <button class="screenshot-button" data-enlarge aria-label="Enlarge Home screenshot"><img src="./images/home.jpg" alt="Muse Home: resume your last track and browse recently added albums" width="2048" height="1072" loading="lazy" /></button>
+        <figcaption class="preview-caption"><span>Home: pick up where you left off.</span><button class="text-button" data-enlarge>Enlarge <span aria-hidden="true">↗</span></button></figcaption>
+      </figure>
     </section>
 
-    <section class="radio section" id="radio" aria-labelledby="radio-title"><div class="wrap radio-grid"><div class="radio-copy reveal"><p class="eyebrow">LET ONE SONG LEAD TO ANOTHER</p><h2 id="radio-title">From the record<br /><em>that’s on.</em></h2><p>Pick a record to start from. Radio keeps going from there, following how the music sounds and what the songs are about.</p><p class="secondary-copy">Skipping a track steers it away from songs like that one.</p><a class="text-link" href="#experience" id="show-radio">Explore Radio <span aria-hidden="true">↗</span></a></div><div class="radio-visual reveal"><img src="./images/radio.jpg" alt="Muse Radio: start from the record that is on or from your artists" loading="lazy" width="2047" height="1071" /></div></div></section>
+    <section class="library wrap section" id="library" aria-labelledby="library-title">
+      <div class="section-heading reveal"><h2 id="library-title">Search the <em>library.</em></h2><p>Browse your music by Albums, Artists, or Songs.<br />Search the library to find what you want to play.</p></div>
+<figure class="feature-shot reveal">
+        <button class="screenshot-button" data-enlarge aria-label="Enlarge Library screenshot"><img src="./images/library.jpg" alt="Muse Library: albums displayed with cover artwork, titles, and artists" width="2048" height="1072" loading="lazy" /></button>
+        <figcaption class="preview-caption"><span>Albums: browse your collection by cover artwork.</span><button class="text-button" data-enlarge>Enlarge <span aria-hidden="true">↗</span></button></figcaption>
+      </figure>
+      <div class="library-views">
+        <article><h3>Artists</h3><p>Find your artists and the albums in your library.</p>
+<figure class="feature-shot reveal">
+        <button class="screenshot-button" data-enlarge aria-label="Enlarge Artists screenshot"><img src="./images/artists.jpg" alt="Muse Library Artists: artist names and album counts" width="2048" height="1072" loading="lazy" /></button>
+        <figcaption class="preview-caption"><span>Your artists, together in one view.</span><button class="text-button" data-enlarge>Enlarge <span aria-hidden="true">↗</span></button></figcaption>
+      </figure>
+        </article>
+        <article><h3>Songs</h3><p>Browse individual tracks, their artists, and durations.</p>
+<figure class="feature-shot reveal">
+        <button class="screenshot-button" data-enlarge aria-label="Enlarge Songs screenshot"><img src="./images/songs.jpg" alt="Muse Library Songs: track titles, artist names, and durations" width="2048" height="1072" loading="lazy" /></button>
+        <figcaption class="preview-caption"><span>Every song in your library.</span><button class="text-button" data-enlarge>Enlarge <span aria-hidden="true">↗</span></button></figcaption>
+      </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="radio section" id="radio" aria-labelledby="radio-title"><div class="wrap">
+      <div class="section-heading reveal"><p class="eyebrow">LET ONE SONG LEAD TO ANOTHER</p><h2 id="radio-title">From the record<br /><em>that’s on.</em></h2><p>Pick a record to start from. Radio keeps going from there,<br />following how the music sounds and what the songs are about.</p><p class="radio-note">Skipping a track steers it away from songs like that one.</p></div>
+<figure class="feature-shot reveal">
+        <button class="screenshot-button" data-enlarge aria-label="Enlarge Radio screenshot"><img src="./images/radio.jpg" alt="Muse Radio: start from the record that is on or from your artists" width="2048" height="1072" loading="lazy" /></button>
+        <figcaption class="preview-caption"><span>Start from the record that’s on, or choose one of your artists.</span><button class="text-button" data-enlarge>Enlarge <span aria-hidden="true">↗</span></button></figcaption>
+      </figure>
+    </div></section>
+
+    <section class="add-music wrap section" id="add-music" aria-labelledby="add-title">
+      <div class="section-heading reveal"><h2 id="add-title">Find it.<br /><em>Add music.</em></h2><p>Search for a song or an album. It downloads in the background<br />and appears in the library when it’s ready.</p></div>
+<figure class="feature-shot reveal">
+        <button class="screenshot-button" data-enlarge aria-label="Enlarge Add screenshot"><img src="./images/add.jpg" alt="Muse Add music: search by song, album, or artist; view results and download progress" width="2048" height="1072" loading="lazy" /></button>
+        <figcaption class="preview-caption"><span>Search by song, album, or artist. Follow the progress in Downloading.</span><button class="text-button" data-enlarge>Enlarge <span aria-hidden="true">↗</span></button></figcaption>
+      </figure>
+    </section>
 
     <section class="download section wrap" id="download" aria-labelledby="download-title"><p class="eyebrow">MAKE ROOM FOR YOUR NEXT FAVORITE</p><h2 id="download-title">Your music.<br /><em>Your Muse.</em></h2><div class="download-info"><p>Home. Library. Radio. Add music.<br />All in Muse for macOS.</p><div id="download-actions"><span class="availability">Coming soon for macOS</span><p class="download-note">Muse is a macOS-only app. The installer will be available on GitHub.</p><a class="text-link" href="https://github.com/ChillMuse/muse-player/releases" target="_blank" rel="noopener noreferrer">View GitHub releases <span aria-hidden="true">↗</span></a></div></div></section>
 

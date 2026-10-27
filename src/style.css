@@ -30,3 +30,23 @@
   .footer-bottom{font-size:13px}
   .dialog-close{font-size:16px}
 }
+/* All product screens live in the page flow; no feature selection is required. */
+.feature-shot{margin:48px 0 0;min-width:0}
+.feature-shot .preview-caption>span{line-height:1.6}
+.feature-shot .text-button{flex-shrink:0}
+.library{border-top:1px solid var(--line)}
+.library-views{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:64px}
+.library-views article{min-width:0}
+.library-views article>p{font-size:18px;color:var(--muted);margin-top:16px;line-height:1.7}
+.library-views .feature-shot{margin-top:28px}
+.radio .section-heading>p:not(.eyebrow){margin-top:28px;color:var(--muted);font-size:18px}
+.radio .section-heading>p.radio-note{font-size:16px;margin-top:16px}
+@media(max-width:767px){
+  .library-views{grid-template-columns:1fr;gap:40px;margin-top:40px}
+  .library-views article>p{font-size:14px;margin-top:12px}
+  .feature-shot{margin-top:32px}
+  .library-views .feature-shot{margin-top:20px}
+  .radio .section-heading>p:not(.eyebrow){font-size:14px}
+  .radio .section-heading>p.radio-note{font-size:13px}
+  .section-heading p br{display:none}
+}

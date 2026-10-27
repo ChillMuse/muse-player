@@ -29,4 +29,4 @@ Six original supplied app screenshots are in `public/images/`. Generated artwork
 npx playwright test
 ```
 
-Checks desktop/mobile overflow, image loading, tabs and keyboard navigation, screenshot dialog, FAQ, and automated accessibility. Tests use installed Google Chrome. Serve the production build with `npm run preview` first.
+Checks desktop/mobile overflow, image loading, all six scroll-visible feature screenshots, screenshot dialog, FAQ, and automated accessibility. Tests use installed Google Chrome. Serve the production build with `npm run preview` first.

@@ -1,31 +1,35 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-const url = 'http://localhost:4173/muse-player/';
-test('desktop interactions, assets and accessibility', async ({ page }) => {
-  const errors = []; page.on('pageerror', error => errors.push(error.message));
-  await page.goto(url); await page.evaluate(() => document.fonts.ready);
-  await expect(page).toHaveTitle('Muse. Find your frequency.');
-  await page.getByRole('tab', { name: 'Library', exact: true }).click();
-  await expect(page.locator('#app-screen')).toHaveAttribute('src', /library.jpg/);
-  await page.getByRole('tab', { name: 'Library', exact: true }).press('ArrowRight');
-  await expect(page.getByRole('tab', { name: 'Radio', exact: true })).toHaveAttribute('aria-selected', 'true');
-  await page.getByRole('button', { name: 'Artists', exact: true }).click();
-  await expect(page.locator('#app-screen')).toHaveAttribute('src', /artists.jpg/);
-  await page.getByRole('button', { name: 'Enlarge', exact: false }).last().click();
-  await expect(page.getByRole('dialog')).toBeVisible();
-  await page.keyboard.press('Escape'); await expect(page.getByRole('dialog')).not.toBeVisible();
-  await page.locator('summary').last().click(); await expect(page.locator('details').last()).toHaveAttribute('open', '');
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-  expect(errors).toEqual([]);
-  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto(url); await page.evaluate(async () => { await document.fonts.ready; await Promise.all([...document.images].filter(img => !img.closest('dialog')).map(img => { img.loading = 'eager'; return img.decode(); })); }); await page.screenshot({ path: 'test-results/desktop.png', fullPage: true });
-});
-test('mobile layout and reduced motion', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 }); await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto(url);
-  await expect(page.getByRole('link', { name: 'Explore Muse' })).toBeInViewport();
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  for (const tab of await page.getByRole('tab').all()) { await tab.click(); await expect(page.locator('#app-screen')).toBeVisible(); }
-  await page.evaluate(async () => { await Promise.all([...document.images].filter(img => !img.closest('dialog')).map(img => { img.loading = 'eager'; return img.decode(); })); });
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-  await page.goto(url); await page.evaluate(async () => { await document.fonts.ready; await Promise.all([...document.images].filter(img => !img.closest('dialog')).map(img => { img.loading = 'eager'; return img.decode(); })); }); await page.screenshot({ path: 'test-results/mobile.png', fullPage: true });
-});
+const url = process.env.SITE_URL || 'http://localhost:4173/muse-player/';
+for (const [name, width, height] of [['desktop', 1440, 1000], ['mobile', 390, 844]]) {
+  test(`${name}: all features visible by scrolling, enlargement and accessibility`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    const errors = []; page.on('pageerror', error => errors.push(error.message));
+    await page.goto(url);
+    await expect(page).toHaveTitle('Muse. Find your frequency.');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await expect(page.getByRole('link', { name: 'Explore Muse' })).toBeInViewport();
+    await expect(page.getByRole('tab')).toHaveCount(0);
+    await expect(page.locator('main figure')).toHaveCount(6);
+    for (const screen of ['home', 'library', 'artists', 'songs', 'radio', 'add']) {
+      const screenshot = page.locator(`main figure img[src$="/${screen}.jpg"]`);
+      await screenshot.scrollIntoViewIfNeeded();
+      await expect(screenshot).toBeInViewport();
+      await screenshot.evaluate(img => img.decode());
+      await screenshot.locator('..').click();
+      await expect(page.getByRole('dialog')).toBeVisible();
+      await expect(page.locator('dialog img')).toHaveAttribute('src', new RegExp(`/${screen}.jpg$`));
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('dialog')).not.toBeVisible();
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.evaluate(() => /[\uac00-\ud7af]/.test(document.documentElement.outerHTML))).toBe(false);
+    await page.locator('summary').last().click();
+    await expect(page.locator('details').last()).toHaveAttribute('open', '');
+    expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+    expect(errors).toEqual([]);
+    await page.evaluate(() => document.fonts.ready);
+    await page.screenshot({ path: `test-results/${name}.png`, fullPage: true });
+  });
+}
