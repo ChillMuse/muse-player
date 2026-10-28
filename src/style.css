@@ -49,3 +49,7 @@
   .radio .section-heading>p.radio-note{font-size:13px}
   .section-heading p br{display:none}
 }
+
+/* Phosphor SVGs avoid platform-dependent emoji substitution. */
+.icon{display:inline-block;width:1em;height:1em;vertical-align:-.125em;fill:currentColor;flex-shrink:0}
+.logo .icon{vertical-align:middle}

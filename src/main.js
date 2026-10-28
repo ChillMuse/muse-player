@@ -24,7 +24,8 @@ if (download.url) {
   const url = new URL(download.url);
   if (url.protocol === 'https:') {
     const link = document.createElement('a');
-    link.className = 'button primary'; link.href = url.href; link.textContent = `${download.label} ↗`;
+    link.className = 'button primary'; link.href = url.href; link.textContent = download.label;
+    link.append(document.querySelector('.header .button span').cloneNode(true));
     document.querySelector('.availability').replaceWith(link);
     document.querySelector('.download-note').textContent = download.note;
     const faq = document.querySelector('.questions details:last-child p');

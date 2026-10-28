@@ -30,3 +30,5 @@ npx playwright test
 ```
 
 Checks desktop/mobile overflow, image loading, all six scroll-visible feature screenshots, screenshot dialog, FAQ, and automated accessibility. Tests use installed Google Chrome. Serve the production build with `npm run preview` first.
+
+Interface symbols use inline SVG assets from Phosphor Icons (`@phosphor-icons/core`, MIT). Their license is retained in `design/phosphor-license.txt`. SVGs use `currentColor` and do not depend on operating-system emoji fonts.
