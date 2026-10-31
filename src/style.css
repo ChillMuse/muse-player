@@ -105,10 +105,11 @@
   opacity: 1;
 }
 
-/* Align supporting download text with the main button label */
 .download-alternatives {
   position: relative;
-  left: 0;
+  left: -104px;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 /* Align availability note */
