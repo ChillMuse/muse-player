@@ -79,3 +79,17 @@
 .download-alternative:hover {
   opacity: 1;
 }
+
+.download-options {
+  gap: 6px;
+}
+
+.download-alternatives {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.download-note {
+  margin-top: 16px;
+}
