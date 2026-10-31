@@ -3,6 +3,7 @@ import '@fontsource/dm-sans/latin-500.css';
 import '@fontsource/dm-sans/latin-600.css';
 import '@fontsource/cormorant-garamond/latin-400-italic.css';
 import './style.css';
+import { download } from './download.js';
 const dialog = document.querySelector('#image-dialog');
 document.querySelectorAll('[data-enlarge]').forEach(button => {
   button.addEventListener('click', () => {
@@ -19,16 +20,89 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObse
   document.querySelectorAll('.reveal').forEach(element => { element.classList.add('pending'); observer.observe(element); });
 }
 
-import { download } from './download.js';
-if (download.url) {
-  const url = new URL(download.url);
-  if (url.protocol === 'https:') {
+// Detect visitor's operating system
+const platform =
+  navigator.userAgentData?.platform ||
+  navigator.platform ||
+  navigator.userAgent;
+
+const isMac = /mac/i.test(platform);
+const isWindows = /win/i.test(platform);
+
+// Select recommended download
+const primaryDownload = isMac
+  ? download.macOS.appleSilicon
+  : isWindows
+    ? download.windows
+    : null;
+
+// Create download links
+const createDownloadLink = (item, primary = false) => {
+  const link = document.createElement('a');
+
+  link.className = primary
+    ? 'button primary'
+    : 'download-alternative';
+
+  link.href = item.url;
+  link.textContent = item.label;
+
+  return link;
+};
+
+const availability = document.querySelector('.availability');
+
+if (availability) {
+  const container = document.createElement('div');
+  container.className = 'download-options';
+
+  if (primaryDownload) {
+    container.append(createDownloadLink(primaryDownload, true));
+  } else {
     const link = document.createElement('a');
-    link.className = 'button primary'; link.href = url.href; link.textContent = download.label;
-    link.append(document.querySelector('.header .button span').cloneNode(true));
-    document.querySelector('.availability').replaceWith(link);
-    document.querySelector('.download-note').textContent = download.note;
-    const faq = document.querySelector('.questions details:last-child p');
-    faq.textContent = 'Muse is a macOS-only app. Use the download button to get the installer. See the GitHub release for installation instructions.';
+    link.className = 'button primary';
+    link.href = download.releases;
+    link.textContent = 'Download Muse';
+    container.append(link);
+  }
+
+  // Alternative downloads
+  const alternatives = document.createElement('div');
+  alternatives.className = 'download-alternatives';
+
+  if (isMac) {
+    alternatives.append(
+      createDownloadLink(download.macOS.intel)
+    );
+  } else if (isWindows) {
+    alternatives.append(
+      createDownloadLink(download.macOS.appleSilicon),
+      createDownloadLink(download.macOS.intel)
+    );
+  } else {
+    alternatives.append(
+      createDownloadLink(download.macOS.appleSilicon),
+      createDownloadLink(download.macOS.intel),
+      createDownloadLink(download.windows)
+    );
+  }
+
+  container.append(alternatives);
+  availability.replaceWith(container);
+
+  // Update download note
+  const note = document.querySelector('.download-note');
+
+  if (note) {
+    note.textContent =
+      'Available for macOS (Apple Silicon and Intel) and Windows.';
+  }
+
+  // Update FAQ
+  const faq = document.querySelector('.questions details:last-child p');
+
+  if (faq) {
+    faq.textContent =
+      'Muse is available for macOS and Windows. Choose the installer for your operating system. Mac users should select the Apple Silicon or Intel version according to their processor.';
   }
 }
