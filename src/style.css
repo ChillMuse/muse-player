@@ -104,3 +104,22 @@
 .download-alternative:hover {
   opacity: 1;
 }
+
+/* Space between primary and alternative downloads */
+.download-options {
+  gap: 18px;
+}
+
+/* Align supporting text with the button label */
+.download-alternatives {
+  padding-left: 52px;
+}
+
+.download-note {
+  margin-left: 52px;
+}
+
+/* Align GitHub releases link */
+a[href*="releases"] {
+  margin-left: 52px;
+}
