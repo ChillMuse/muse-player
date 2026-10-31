@@ -108,7 +108,7 @@
 /* Align supporting download text with the main button label */
 .download-alternatives {
   position: relative;
-  left: 52px;
+  left: 0;
 }
 
 /* Align availability note */
