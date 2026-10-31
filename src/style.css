@@ -112,16 +112,14 @@
   margin-left: 0;
 }
 
-/* Align availability note */
 .download-note {
   position: relative;
-  left: 52px;
+  left: -52px;
 }
 
-/* Align GitHub releases link */
 a[href="https://github.com/ChillMuse/muse-player/releases"] {
   position: relative;
-  left: 52px;
+  left: -52px;
 }
 
 /* Increase space between primary and secondary downloads */
