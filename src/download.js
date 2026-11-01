@@ -1,4 +1,5 @@
-// Installers from the muse-desktop GitHub release. Update the file names when a new version ships.
+// Installers from the newest muse-desktop GitHub release. The release workflow also uploads each installer
+// under a version-free name, so these links keep pointing at the latest build.
 const release = 'https://github.com/IanTheMitten/muse-desktop/releases/latest/download';
 
 export const installers = {
@@ -6,24 +7,24 @@ export const installers = {
     id: 'mac',
     os: 'macos',
     name: 'macOS (Apple Silicon)',
-    file: 'Muse_0.1.1_aarch64.dmg',
-    url: `${release}/Muse_0.1.1_aarch64.dmg`,
+    file: 'Muse_aarch64.dmg',
+    url: `${release}/Muse_aarch64.dmg`,
     label: 'Download for macOS'
   },
   'mac-intel': {
     id: 'mac-intel',
     os: 'macos',
     name: 'macOS (Intel)',
-    file: 'Muse_0.1.1_x64.dmg',
-    url: `${release}/Muse_0.1.1_x64.dmg`,
+    file: 'Muse_x64.dmg',
+    url: `${release}/Muse_x64.dmg`,
     label: 'Download for Intel Mac'
   },
   windows: {
     id: 'windows',
     os: 'windows',
     name: 'Windows',
-    file: 'Muse_0.1.1_x64-setup.exe',
-    url: `${release}/Muse_0.1.1_x64-setup.exe`,
+    file: 'Muse_x64-setup.exe',
+    url: `${release}/Muse_x64-setup.exe`,
     label: 'Download for Windows'
   }
 };
