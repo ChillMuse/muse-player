@@ -2,6 +2,9 @@ name: Deploy Muse to GitHub Pages
 on:
   push:
     branches: [main]
+  # Rebuild daily so the version shown on the site follows the newest muse-desktop release.
+  schedule:
+    - cron: '17 6 * * *'
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,6 +24,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
