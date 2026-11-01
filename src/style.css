@@ -105,11 +105,10 @@
   opacity: 1;
 }
 
+/* Align supporting download text with the main button label */
 .download-alternatives {
   position: relative;
-  left: -104px;
-  padding-left: 0;
-  margin-left: 0;
+  left: 0;
 }
 
 /* Align availability note */
@@ -122,21 +121,6 @@
 a[href="https://github.com/ChillMuse/muse-player/releases"] {
   position: relative;
   left: 52px;
-}
-
-/* Increase space between primary and secondary downloads */
-.download-options {
-  gap: 28px;
-}
-
-.download-note {
-  position: relative;
-  left: -156px;
-}
-
-a[href="https://github.com/ChillMuse/muse-player/releases"] {
-  position: relative;
-  left: -156px;
 }
 
 /* Increase space between primary and secondary downloads */
