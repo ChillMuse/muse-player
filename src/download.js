@@ -7,8 +7,9 @@ export const installers = {
     id: 'mac',
     os: 'macos',
     name: 'macOS (Apple Silicon)',
-    file: 'Muse_aarch64.dmg',
-    url: `${release}/Muse_aarch64.dmg`,
+    // Temporarily a zip: macOS 26 can refuse to open the unsigned .dmg on Apple Silicon. Back to the .dmg once Muse is notarized.
+    file: 'Muse_aarch64.zip',
+    url: `${release}/Muse_aarch64.zip`,
     label: 'Download for macOS'
   },
   'mac-intel': {
