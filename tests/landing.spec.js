@@ -11,8 +11,8 @@ for (const [name, width, height] of [['desktop', 1440, 1000], ['mobile', 390, 84
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     await expect(page.getByRole('link', { name: 'Explore Muse' })).toBeInViewport();
     await expect(page.getByRole('tab')).toHaveCount(0);
-    await expect(page.locator('main figure')).toHaveCount(6);
-    for (const screen of ['home', 'library', 'artists', 'songs', 'radio', 'add']) {
+    await expect(page.locator('main figure')).toHaveCount(5);
+    for (const screen of ['home', 'library', 'artists', 'songs', 'radio']) {
       const screenshot = page.locator(`main figure img[src$="/${screen}.jpg"]`);
       await screenshot.scrollIntoViewIfNeeded();
       await expect(screenshot).toBeInViewport();

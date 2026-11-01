@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#28172f" />
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Thank you for downloading Muse. How to open Muse for the first time on macOS or Windows." />
+  <title>Thank you. Muse.</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+</head>
+<body class="thanks-page">
+  <a href="#main" class="skip">Skip to content</a>
+  <header class="header wrap">
+    <a class="logo" href="./" aria-label="Muse home">muse<span aria-hidden="true"><svg class="icon icon-asterisk" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M214.86,180.12a8,8,0,0,1-11,2.74L136,142.13V216a8,8,0,0,1-16,0V142.13L52.12,182.86a8,8,0,1,1-8.23-13.72L112.45,128,43.89,86.86a8,8,0,1,1,8.23-13.72L120,113.87V40a8,8,0,0,1,16,0v73.87l67.88-40.73a8,8,0,1,1,8.23,13.72L143.55,128l68.56,41.14A8,8,0,0,1,214.86,180.12Z"/></svg></span></a>
+    <nav aria-label="Main navigation"><a href="./#experience">Experience</a><a href="./#radio">Muse</a><a href="./#faq">FAQ</a></nav>
+    <a class="button small" href="./">Back to Muse <span aria-hidden="true"><svg class="icon icon-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></span></a>
+  </header>
+  <main id="main">
+    <section class="thanks-hero" aria-labelledby="thanks-title">
+      <div class="wrap">
+        <p class="eyebrow">THANK YOU FOR DOWNLOADING</p>
+        <h1 id="thanks-title">Thank you.<br /><em>Enjoy Muse.</em></h1>
+        <p class="thanks-lead" id="download-status">Choose your installer below. Muse 0.1.1 (alpha) is free for macOS and Windows.</p>
+        <div class="thanks-actions" id="download-retry" hidden>
+          <a class="text-link" id="retry-link" href="https://github.com/IanTheMitten/muse-desktop/releases">Download again <span aria-hidden="true"><svg class="icon icon-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></span></a>
+        </div>
+        <div class="download-alternatives thanks-choices" id="download-choices"></div>
+      </div>
+    </section>
+
+    <section class="install wrap section" id="install" aria-labelledby="install-title">
+      <div class="install-intro">
+        <p class="eyebrow">THE FIRST LAUNCH</p>
+        <h2 id="install-title">One extra step,<br /><em>just once.</em></h2>
+        <p>Muse isn’t signed yet, so your computer asks you to confirm the first time you open it. After that, Muse opens like any other app.</p>
+      </div>
+      <div class="install-steps">
+        <div class="tabs" role="tablist" aria-label="Operating system">
+          <button role="tab" id="tab-macos" aria-controls="panel-macos" aria-selected="true">macOS</button>
+          <button role="tab" id="tab-windows" aria-controls="panel-windows" aria-selected="false" tabindex="-1">Windows</button>
+        </div>
+
+        <div role="tabpanel" id="panel-macos" aria-labelledby="tab-macos" tabindex="0">
+          <ol class="steps">
+            <li><span>Open <strong data-file="macos">the .dmg file</strong> in your Downloads folder and drag Muse into Applications.</span></li>
+            <li><span>Open Muse from Applications. macOS says it can’t check Muse for malicious software. Click <strong>Done</strong>.</span></li>
+            <li><span>Open <strong>System Settings › Privacy &amp; Security</strong>. Scroll to Security and click <strong>Open Anyway</strong> next to the message about Muse.</span></li>
+            <li><span>Click <strong>Open Anyway</strong> again and enter your password. Muse opens, and from now on it opens normally.</span></li>
+          </ol>
+          <p class="install-note">On macOS 14 Sonoma or earlier, you can instead Control-click Muse in Applications, choose <strong>Open</strong>, then click <strong>Open</strong>.</p>
+          <p class="install-note">If macOS says Muse “is damaged and can’t be opened”, open Terminal, run <code>xattr -dr com.apple.quarantine /Applications/Muse.app</code>, then open Muse again.</p>
+        </div>
+
+        <div role="tabpanel" id="panel-windows" aria-labelledby="tab-windows" tabindex="0" hidden>
+          <ol class="steps">
+            <li><span>Open <strong data-file="windows">the setup .exe file</strong> in your Downloads folder.</span></li>
+            <li><span>Windows shows “Windows protected your PC”. Click <strong>More info</strong>, then <strong>Run anyway</strong>.</span></li>
+            <li><span>Follow the installer to the end.</span></li>
+            <li><span>Open Muse from the Start menu. When you close the window, Muse keeps playing from the system tray.</span></li>
+          </ol>
+          <p class="install-note">If your browser warns that the file isn’t commonly downloaded, choose <strong>Keep</strong> from its download menu.</p>
+        </div>
+
+        <aside class="notice" aria-labelledby="smart-title">
+          <p class="eyebrow" id="smart-title">THEN, IN SETTINGS</p>
+          <p>Install <strong>Smart features</strong> so Muse can choose better next songs. Go to <strong>Settings › Smart features</strong> and click <strong>Install</strong>. It’s a one-time download of about 3.6 GB, and Muse listens to your songs and reads their lyrics on your computer. Nothing leaves your computer.</p>
+          <p class="notice-small">Smart features need a Mac with Apple silicon or Windows. On Intel Macs, Muse plays and browses your music without them.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="safety wrap section" id="safety" aria-labelledby="safety-title">
+      <h2 id="safety-title">Not signed yet.<br /><em>Still safe.</em></h2>
+      <div class="safety-copy">
+        <p>Apple and Microsoft warn about apps whose developer hasn’t bought a signing certificate. Muse is a free alpha, and its installers aren’t signed yet. The warning means the developer isn’t verified. It doesn’t mean anything harmful was found.</p>
+        <p>Muse contains no viruses or malware. Its source code is public on GitHub, and the installers are built from that code by GitHub Actions, so anyone can check what’s inside.</p>
+        <a class="text-link" href="https://github.com/IanTheMitten/muse-desktop" target="_blank" rel="noopener noreferrer">View the source code <span aria-hidden="true"><svg class="icon icon-arrow-up-right" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><div class="footer-top"><a class="logo" href="./">muse<span aria-hidden="true"><svg class="icon icon-asterisk" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M214.86,180.12a8,8,0,0,1-11,2.74L136,142.13V216a8,8,0,0,1-16,0V142.13L52.12,182.86a8,8,0,1,1-8.23-13.72L112.45,128,43.89,86.86a8,8,0,1,1,8.23-13.72L120,113.87V40a8,8,0,0,1,16,0v73.87l67.88-40.73a8,8,0,1,1,8.23,13.72L143.55,128l68.56,41.14A8,8,0,0,1,214.86,180.12Z"/></svg></span></a><p>Stay a little longer. Listen a little closer.</p></div><div class="footer-bottom"><span>© 2026 Muse</span><span>Made for the love of music.</span></div></footer>
+  <script type="module" src="/src/thanks.js"></script>
+</body>
+</html>
