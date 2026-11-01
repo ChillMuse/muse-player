@@ -54,22 +54,23 @@
 .icon{display:inline-block;width:1em;height:1em;vertical-align:-.125em;fill:currentColor;flex-shrink:0}
 .logo .icon{vertical-align:middle}
 
+/* Download options: primary button, alternatives, note and releases link all flush left. */
 .download-options {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
+  gap: 28px;
 }
 
 .download-alternatives {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px 20px;
 }
 
 .download-alternative {
   color: inherit;
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.7;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -80,50 +81,6 @@
   opacity: 1;
 }
 
-.download-options {
-  gap: 6px;
-}
-
-.download-alternatives {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-}
-
 .download-note {
   margin-top: 16px;
-}
-
-.download-alternative {
-  font-size: 14px;
-  opacity: 0.7;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.download-alternative:hover {
-  opacity: 1;
-}
-
-/* Align supporting download text with the main button label */
-.download-alternatives {
-  position: relative;
-  left: 0;
-}
-
-/* Align availability note */
-.download-note {
-  position: relative;
-  left: 52px;
-}
-
-/* Align GitHub releases link */
-a[href="https://github.com/ChillMuse/muse-player/releases"] {
-  position: relative;
-  left: 52px;
-}
-
-/* Increase space between primary and secondary downloads */
-.download-options {
-  gap: 28px;
 }
