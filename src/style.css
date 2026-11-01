@@ -54,22 +54,23 @@
 .icon{display:inline-block;width:1em;height:1em;vertical-align:-.125em;fill:currentColor;flex-shrink:0}
 .logo .icon{vertical-align:middle}
 
+/* Download options: primary button, alternatives, note and releases link all flush left. */
 .download-options {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
+  gap: 28px;
 }
 
 .download-alternatives {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px 20px;
 }
 
 .download-alternative {
   color: inherit;
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.7;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -80,50 +81,71 @@
   opacity: 1;
 }
 
-.download-options {
-  gap: 6px;
-}
-
-.download-alternatives {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-}
-
 .download-note {
   margin-top: 16px;
 }
 
-.download-alternative {
-  font-size: 14px;
-  opacity: 0.7;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+/* Thank-you page: same type, colour and starburst as the download section. */
+.thanks-hero{position:relative;isolation:isolate;padding:190px 0 100px;border-bottom:1px solid var(--line);overflow:hidden}
+.thanks-hero:before{content:'';position:absolute;right:0;top:90px;width:46%;height:380px;background:url('/images/muse-starburst.webp') 90% 35%/cover;border-radius:50%;opacity:.55;mask-image:radial-gradient(ellipse,#000 25%,transparent 70%);z-index:-1}
+.thanks-lead{font-size:20px;color:var(--muted);margin-top:36px;max-width:560px}
+.thanks-actions{margin-top:28px}
+.thanks-choices{margin-top:28px}
+.install{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:start}
+.install-intro>p:not(.eyebrow){margin-top:28px;font-size:18px;color:var(--muted);max-width:440px}
+.install .eyebrow,.thanks-hero .eyebrow{color:var(--accent)}
+.install-steps .tabs{width:fit-content}
+.install-steps [role=tabpanel]:focus-visible{outline:2px solid #ffdb8c;outline-offset:6px}
+.steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:step}
+.steps li{counter-increment:step;display:grid;grid-template-columns:56px 1fr;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);font-size:17px;line-height:1.7}
+.steps li:before{content:counter(step,decimal-leading-zero);font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:28px;color:var(--accent);line-height:1}
+.steps strong{font-weight:600;color:#fff4fb}
+.install-note{margin-top:20px;font-size:15px;color:var(--muted)}
+.install-note strong{font-weight:600;color:var(--accent)}
+.install-note code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:#ffffff0d;border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:#f8eaf4;overflow-wrap:anywhere}
+.safety{display:grid;grid-template-columns:1fr 1fr;gap:60px;border-top:1px solid var(--line)}
+.safety h2{font-size:56px}
+.safety-copy p{font-size:17px;color:var(--muted)}
+.safety-copy p+p{margin-top:20px}
+.safety-copy .text-link{margin-top:32px}
+@media(max-width:1024px){.install,.safety{gap:35px}.safety h2{font-size:48px}}
+@media(max-width:767px){
+  .thanks-hero{padding:150px 0 70px}
+  .thanks-hero:before{width:75%;top:70px;right:-20px;height:270px;opacity:.35}
+  .thanks-lead{font-size:15px;margin-top:28px}
+  .install,.safety{grid-template-columns:1fr;gap:30px}
+  .install-intro>p:not(.eyebrow){font-size:14px}
+  .steps li{grid-template-columns:44px 1fr;font-size:14px;padding:18px 0}
+  .steps li:before{font-size:24px}
+  .install-note{font-size:13px}
+  .safety h2{font-size:46px}
+  .safety-copy p{font-size:14px}
 }
 
-.download-alternative:hover {
-  opacity: 1;
-}
+/* Newsletter sign-up for the hidden feature. */
+.secret{border-top:1px solid var(--line)}
+.secret .eyebrow{color:var(--accent)}
+.signup{margin-top:48px;max-width:920px}
+.signup-label{display:block;font-size:14px;margin-bottom:12px}
+.signup-row{display:flex;gap:12px;align-items:flex-end}
+.signup-field{flex:1;min-width:0;display:flex;flex-direction:column}
+.signup-row input{width:100%;font:inherit;font-size:16px;color:#f8eaf4;background:#ffffff08;border:1px solid var(--line);border-radius:100px;padding:18px 26px}
+.signup-row input::placeholder{color:#c5b3c8a6}
+.signup-row input:focus-visible{outline:2px solid #ffdb8c;outline-offset:4px}
+.signup-row .button{white-space:nowrap}
+.signup-row .button:disabled{opacity:.6;cursor:wait;transform:none}
+.signup-consent{display:flex;gap:12px;align-items:flex-start;margin-top:20px;font-size:14px;color:var(--muted);line-height:1.6;cursor:pointer}
+.signup-consent input{accent-color:#f5b9dc;width:18px;height:18px;margin:2px 0 0;flex-shrink:0}
+.signup-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.signup-status{margin-top:18px;font-size:14px;color:var(--accent);min-height:1.8em}
+.signup-status.error{color:#ffdb8c}
+@media(min-width:1024px){.signup-label,.signup-consent,.signup-status{font-size:16px}}
+@media(max-width:640px){.signup{margin-top:32px}.signup-row{flex-direction:column;align-items:stretch}.signup-row .button{justify-content:center}.signup-consent,.signup-status{font-size:13px}}
 
-/* Align supporting download text with the main button label */
-.download-alternatives {
-  position: relative;
-  left: 0;
-}
-
-/* Align availability note */
-.download-note {
-  position: relative;
-  left: 52px;
-}
-
-/* Align GitHub releases link */
-a[href="https://github.com/ChillMuse/muse-player/releases"] {
-  position: relative;
-  left: 52px;
-}
-
-/* Increase space between primary and secondary downloads */
-.download-options {
-  gap: 28px;
-}
+/* Smart-features notice on the thank-you page. */
+.notice{margin-top:40px;padding:28px 30px;border:1px solid #f5b9dc59;background:#f5b9dc0d;border-radius:16px}
+.notice .eyebrow{color:var(--accent);margin-bottom:14px}
+.notice p:not(.eyebrow){font-size:16px;line-height:1.75}
+.notice strong{font-weight:600;color:#fff4fb}
+.notice .notice-small{margin-top:12px;font-size:14px!important;color:var(--muted)}
+@media(max-width:640px){.notice{padding:22px 20px}.notice p:not(.eyebrow){font-size:14px}.notice .notice-small{font-size:13px!important}}

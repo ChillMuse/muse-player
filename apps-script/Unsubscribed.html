@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&amp;family=DM+Sans:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <style>
+    body{margin:0;min-height:100vh;display:flex;align-items:center;background:#24142c;color:#f8eaf4;font-family:'DM Sans',Arial,sans-serif}
+    main{width:min(640px,calc(100% - 40px));margin:auto}
+    h1{font-size:clamp(46px,8vw,72px);font-weight:400;letter-spacing:-.055em;line-height:1.05;margin:0}
+    em{font-family:'Cormorant Garamond',Georgia,serif;color:#f5b9dc;font-size:1.12em}
+    p{color:#c5b3c8;line-height:1.8;margin:24px 0 32px}
+    a{display:inline-block;background:#f7eaf2;color:#29172f;text-decoration:none;font-weight:600;border-radius:100px;padding:16px 26px}
+  </style>
+</head>
+<body>
+  <main>
+    <? if (done) { ?>
+      <h1>You’re<br /><em>unsubscribed.</em></h1>
+      <p>We won’t send you the Muse newsletter again. Muse keeps working as before.</p>
+    <? } else { ?>
+      <h1>That link<br /><em>didn’t work.</em></h1>
+      <p>Open the unsubscribe link from your Muse email again.</p>
+    <? } ?>
+    <a href="<?= siteUrl ?>" target="_top">Back to Muse</a>
+  </main>
+</body>
+</html>

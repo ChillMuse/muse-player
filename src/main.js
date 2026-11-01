@@ -3,7 +3,8 @@ import '@fontsource/dm-sans/latin-500.css';
 import '@fontsource/dm-sans/latin-600.css';
 import '@fontsource/cormorant-garamond/latin-400-italic.css';
 import './style.css';
-import { download } from './download.js';
+import { download, thanksUrl } from './download.js';
+import './signup.js';
 const dialog = document.querySelector('#image-dialog');
 document.querySelectorAll('[data-enlarge]').forEach(button => {
   button.addEventListener('click', () => {
@@ -44,7 +45,7 @@ const createDownloadLink = (item, primary = false) => {
     ? 'button primary'
     : 'download-alternative';
 
-  link.href = item.url;
+  link.href = thanksUrl(item);
   link.textContent = item.label;
 
   return link;
@@ -89,20 +90,4 @@ if (availability) {
 
   container.append(alternatives);
   availability.replaceWith(container);
-
-  // Update download note
-  const note = document.querySelector('.download-note');
-
-  if (note) {
-    note.textContent =
-      'Available for macOS (Apple Silicon and Intel) and Windows.';
-  }
-
-  // Update FAQ
-  const faq = document.querySelector('.questions details:last-child p');
-
-  if (faq) {
-    faq.textContent =
-      'Muse is available for macOS and Windows. Choose the installer for your operating system. Mac users should select the Apple Silicon or Intel version according to their processor.';
-  }
 }
