@@ -22,5 +22,5 @@ const latestRelease = () => release ??= (async () => {
 export default defineConfig({
   base: '/muse-player/',
   plugins: [{ name: 'muse-release', transformIndexHtml: async html => html.replaceAll('__MUSE_RELEASE__', await latestRelease()) }],
-  build: { rollupOptions: { input: { main: resolve(import.meta.dirname, 'index.html'), thanks: resolve(import.meta.dirname, 'thanks.html') } } }
+  build: { rollupOptions: { input: { main: resolve(import.meta.dirname, 'index.html'), thanks: resolve(import.meta.dirname, 'thanks.html'), docs: resolve(import.meta.dirname, 'docs.html') } } }
 });
