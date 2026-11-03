@@ -33,3 +33,22 @@ for (const [name, width, height] of [['desktop', 1440, 1000], ['mobile', 390, 84
     await page.screenshot({ path: `test-results/${name}.png`, fullPage: true });
   });
 }
+
+const docsUrl = url.replace(/\/?$/, '/') + 'docs.html';
+for (const [name, width, height] of [['desktop', 1440, 1000], ['mobile', 390, 844]]) {
+  test(`${name}: docs page contents, links and accessibility`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    const errors = []; page.on('pageerror', error => errors.push(error.message));
+    await page.goto(docsUrl);
+    await expect(page).toHaveTitle('Muse docs. How Muse works.');
+    const toc = page.getByRole('navigation', { name: 'On this page' }).getByRole('link');
+    await expect(toc).toHaveCount(11);
+    for (const hash of await toc.evaluateAll(links => links.map(link => link.hash))) await expect(page.locator(hash)).toHaveCount(1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.content()).not.toContain('__MUSE_RELEASE__');
+    expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+    expect(errors).toEqual([]);
+    await page.screenshot({ path: `test-results/docs-${name}.png`, fullPage: true });
+  });
+}
